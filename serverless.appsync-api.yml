@@ -1,0 +1,29 @@
+name: service-name
+schema: schema.graphql
+authenticationType: AMAZON_COGNITO_USER_POOLS
+userPoolConfig:
+  awsRegion: us-east-1
+  defaultAction: ALLOW
+  userPoolId: !Ref CognitoUserPool
+additionalAuthenticationProviders:
+  - authenticationType: AWS_IAM
+mappingTemplatesLocation: src/mapping-templates
+mappingTemplates:
+  - type: Query
+    field: dummy
+    dataSource: myTable
+    request: Dummy.request.vtl
+    response: Dummy.response.vtl
+
+dataSources:
+  - type: AMAZON_DYNAMODB
+    name: myTable
+    config:
+      tableName: !Ref MyTable
+  - type: AWS_LAMBDA
+    name: dummyLambdaFunction
+    config:
+      functionName: handler
+
+substitutions:
+  MyTable: !Ref MyTable

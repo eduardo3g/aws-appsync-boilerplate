@@ -1,0 +1,2 @@
+Handler:
+  handler: src/functions/handler.handler

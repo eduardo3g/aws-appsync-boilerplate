@@ -1,0 +1,53 @@
+{
+  "name": "service-name",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Management service dedicated to register users, club management systems, gyms and credentials.",
+  "main": "handler.js",
+  "scripts": {
+    "jest": "jest",
+    "test": "jest --verbose src/__tests__/test_cases/unit --silent",
+    "integration-test": "jest --verbose src/__tests__/test_cases/integration --silent",
+    "e2e-test": "jest --verbose src/__tests__/test_cases/e2e --silent"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eduardo3g/gympass-management-service.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eduardo3g/gympass-management-service/issues"
+  },
+  "homepage": "https://github.com/eduardo3g/gympass-management-service#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
+    "@types/jest": "^27.4.0",
+    "aws-sdk": "^2.1061.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^7.27.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.23.4",
+    "eslint-plugin-prettier": "^3.4.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.7",
+    "prettier": "^2.3.0",
+    "serverless": "^2.72.0",
+    "serverless-appsync-plugin": "^1.12.1",
+    "serverless-export-env": "^2.0.0",
+    "serverless-iam-roles-per-function": "^3.2.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
+  }
+}
